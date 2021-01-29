@@ -1,38 +1,19 @@
-# nest-status-monitor
+# nestjs-status-monitor
 
-[![NPM](https://nodei.co/npm/nest-status-monitor.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nest-status-monitor/)
+[![NPM](https://nodei.co/npm/nestjs-status-monitor.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nestjs-status-monitor/)
+[![nestjs-status-monitor on npm](https://img.shields.io/npm/v/nestjs-status-monitor.svg)](https://www.npmjs.com/package/nestjs-status-monitor)
+[![npm](https://img.shields.io/npm/dt/nestjs-status-monitor.svg)](https://img.shields.io/npm/dt/nestjs-status-monitor.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-[![nest-status-monitor on npm](https://img.shields.io/npm/v/nest-status-monitor.svg)](https://www.npmjs.com/package/nest-status-monitor)
-[![npm](https://img.shields.io/npm/dt/nest-status-monitor.svg)](https://img.shields.io/npm/dt/nest-status-monitor.svg)
-[![Build Status](https://travis-ci.org/GenFirst/nest-status-monitor.svg?branch=master)](https://travis-ci.org/GenFirst/nest-status-monitor)
-[![Coverage Status](https://coveralls.io/repos/github/GenFirst/nest-status-monitor/badge.svg?branch=master)](https://coveralls.io/github/GenFirst/nest-status-monitor?branch=master)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-[![Edit nest-status-monitor](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/yw1lov19q9?autoresize=1&initialpath=%2Fstatus)
 
 Simple, self-hosted module based on Socket.io and Chart.js to report realtime
-server metrics for Nest.js based node servers.
+server metrics for NestJS based node servers.
 
 ![Status monitor page](https://i.imgur.com/AkZEPYG.gif 'Status monitor page')
 
-## Demo
+## Installation & setup NestJS v7
 
-Demo can be found [here](https://nest-status-monitor.herokuapp.com/status)
-
-## Installation & setup Nest.js v6
-
-1. Run `npm install nest-status-monitor --save`
-2. Setup module:
-
-```javascript
-@Module({
-  imports: [StatusMonitorModule.setUp(statusMonitorConfig)],
-```
-
-3. Run server and go to `/status`
-
-## Installation & setup Nest.js v5
-
-1. Run `npm install nest-status-monitor@0.0.3 --save`
+1. Run `npm install nestjs-status-monitor --save`
 2. Setup module:
 
 ```javascript
@@ -57,7 +38,7 @@ module.
 Default config:
 
 ```javascript
-pageTitle: 'Nest.js Monitoring Page',
+pageTitle: 'NestJS Monitoring Page',
 port: 3001,
 path: '/status',
 ignoreStartsWith: '/health/alive',
@@ -110,9 +91,5 @@ healthChecks: [
 ];
 ```
 
-## License
-
-[MIT License](https://opensource.org/licenses/MIT) © Ivan Vasiljevic
-
 Forked from
-[express-status-monitor](https://github.com/RafalWilinski/express-status-monitor)
+[nest-status-monitor](https://github.com/GenFirst/nest-status-monitor)
