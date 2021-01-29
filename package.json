@@ -1,6 +1,6 @@
 {
   "name": "nestjs-status-monitor",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Realtime Monitoring for Express-based NestJS applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,7 @@
     "url": "git+https://github.com/honnamkuan/nestjs-status-monitor.git"
   },
   "author": "honnamkuan",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "keywords": [
     "nestjs",
     "status",
