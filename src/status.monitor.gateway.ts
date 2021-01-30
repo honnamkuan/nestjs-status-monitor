@@ -2,13 +2,12 @@ import {
   SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
-  OnGatewayConnection,
 } from '@nestjs/websockets';
 import { StatusMonitoringService } from './status.monitoring.service';
-import { Inject, forwardRef } from '@nestjs/common';
+import { Inject, forwardRef, Logger } from '@nestjs/common';
 
-@WebSocketGateway()
-export class StatusMonitorGateway implements OnGatewayConnection {
+@WebSocketGateway({ namespace: 'status-monitor' })
+export class StatusMonitorGateway {
   @WebSocketServer()
   server;
 
@@ -21,7 +20,7 @@ export class StatusMonitorGateway implements OnGatewayConnection {
   onEvent(client, data: any) {
     const event = 'esm_start';
     const spans = this.statusMonitoringService.getData();
-    return { event, spans };
+    return { event, data: spans };
   }
 
   handleConnection(client) {

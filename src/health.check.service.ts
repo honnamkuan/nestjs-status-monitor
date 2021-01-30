@@ -51,7 +51,6 @@ export class HealthCheckService {
 
     uri += healthCheck.path;
 
-    //TODO (ivasiljevic) use http service instead of axios
     return axios({
       url: uri,
       method: 'GET',

@@ -13,7 +13,7 @@ export class StatusMonitorController {
   render;
 
   constructor(
-    private readonly healtCheckService: HealthCheckService,
+    private readonly healthCheckService: HealthCheckService,
     @Inject(STATUS_MONITOR_OPTIONS_PROVIDER) config: StatusMonitorConfiguration,
   ) {
     const bodyClasses = Object.keys(config.chartVisibility)
@@ -26,14 +26,15 @@ export class StatusMonitorController {
       .join(' ');
 
     this.data = {
-      title: config.pageTitle,
+      title: config.title,
       port: config.port,
+      socketPath: config.socketPath,
       bodyClasses: bodyClasses,
       script: fs.readFileSync(
         path.join(__dirname, '../src/public/javascripts/app.js'),
       ),
       style: fs.readFileSync(
-        path.join(__dirname, '../src/public/stylesheets/style.css'),
+        path.join(__dirname, '../src/public/stylesheets/', 'default.css'),
       ),
     };
 
@@ -52,8 +53,8 @@ export class StatusMonitorController {
   @Get()
   @HttpCode(200)
   async root() {
-    const healtData = await this.healtCheckService.checkAllEndpoints();
-    this.data.healthCheckResults = healtData;
+    const healthData = await this.healthCheckService.checkAllEndpoints();
+    this.data.healthCheckResults = healthData;
     return this.render(this.data);
   }
 }

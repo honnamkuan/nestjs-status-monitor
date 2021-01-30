@@ -5,7 +5,8 @@ import { ChartVisibilityConfiguration } from './chart.visibility.configuration';
 export interface StatusMonitorConfiguration {
   path: string;
   port: number;
-  pageTitle: string;
+  socketPath: string;
+  title: string;
   ignoreStartsWith: string;
   healthChecks: HealthCheckConfiguration[];
   spans: SpansConfiguration[];

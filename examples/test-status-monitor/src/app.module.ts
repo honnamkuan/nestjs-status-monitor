@@ -8,21 +8,22 @@ import {
 import { HealthController } from './healthController';
 
 const statusMonitorConfig: StatusMonitorConfiguration = {
-  pageTitle: 'NestJS Monitoring Page',
+  title: 'NestJS Monitoring Page',
   port: 3001,
+  socketPath: '/socket.io',
   path: '/status',
-  ignoreStartsWith: '/healt/alive',
+  ignoreStartsWith: '/admin',
   healthChecks: [
     {
       protocol: 'http',
       host: 'localhost',
-      path: '/health/alive',
+      path: '/admin/health/alive',
       port: 3001,
     },
     {
       protocol: 'http',
       host: 'localhost',
-      path: '/health/dead',
+      path: '/admin/health/dead',
       port: 3001,
     },
   ],

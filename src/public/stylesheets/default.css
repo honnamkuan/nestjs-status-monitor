@@ -35,7 +35,7 @@ span {
   cursor: pointer;
   font-size: 10px;
   margin-left: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid #DDD;
   padding: 3px 10px 4px 10px;
 }
 
@@ -111,11 +111,11 @@ canvas {
 }
 
 .health-check-status-container.ok {
-  background: #75d701;
+  background: #75D701;
 }
 
 .health-check-status-container.failed {
-  background: #e53a40;
+  background: #E53A40;
 }
 
 .health-check-status-container h1 {
@@ -148,7 +148,7 @@ canvas {
 }
 
 .status-code-2xx:before {
-  background-color: #75d701;
+  background-color: #75D701;
 }
 
 .status-code-3xx:before {
@@ -160,5 +160,5 @@ canvas {
 }
 
 .status-code-5xx:before {
-  background-color: #e53a40;
+  background-color: #E53A40;
 }

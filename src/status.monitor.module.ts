@@ -11,6 +11,7 @@ import { StatusMonitorMiddleware } from './status.monitor.middleware';
 import { HealthCheckService } from './health.check.service';
 import { StatusMonitorConfiguration } from './config/status.monitor.configuration';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
+import * as defaultConfig from './default.config';
 
 @Module({
   controllers: [StatusMonitorController.forRoot('monitor')],
@@ -27,7 +28,7 @@ export class StatusMonitorModule {
       .forRoutes({ path: '*', method: RequestMethod.ALL });
   }
 
-  static setUp(config: StatusMonitorConfiguration): DynamicModule {
+  static setUp(config: StatusMonitorConfiguration = defaultConfig.default): DynamicModule {
     return {
       module: StatusMonitorModule,
       providers: [

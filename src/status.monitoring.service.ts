@@ -1,13 +1,15 @@
-import { Injectable, Inject, forwardRef } from '@nestjs/common';
+import { Injectable, Inject, forwardRef, Logger } from '@nestjs/common';
 import * as pidusage from 'pidusage';
 import * as os from 'os';
 import { StatusMonitorGateway } from './status.monitor.gateway';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
 import { StatusMonitorConfiguration } from './config/status.monitor.configuration';
+import * as v8 from 'v8';
 
 @Injectable()
 export class StatusMonitoringService {
   spans = [];
+  eventLoopStats;
 
   constructor(
     @Inject(forwardRef(() => StatusMonitorGateway))
@@ -15,7 +17,15 @@ export class StatusMonitoringService {
     @Inject(STATUS_MONITOR_OPTIONS_PROVIDER)
     readonly config: StatusMonitorConfiguration,
   ) {
-    config.spans.forEach(currentSpan => {
+    import('event-loop-stats')
+      .then((module) => (this.eventLoopStats = module))
+      .catch((err) =>
+        console.warn(
+          'event-loop-stats not found, ignoring event loop metrics...',
+        ),
+      );
+
+    config.spans.forEach((currentSpan) => {
       const span = {
         os: [],
         responses: [],
@@ -46,6 +56,7 @@ export class StatusMonitoringService {
 
     pidusage(process.pid, (err, stat) => {
       if (err) {
+        Logger.debug(err, this.constructor.name);
         return;
       }
 
@@ -55,6 +66,11 @@ export class StatusMonitoringService {
       stat.memory = stat.memory / 1024 / 1024;
       stat.load = os.loadavg();
       stat.timestamp = Date.now();
+      stat.heap = v8.getHeapStatistics();
+
+      if (this.eventLoopStats) {
+        stat.loop = this.eventLoopStats.sense();
+      }
 
       span.os.push(stat);
       if (
@@ -84,7 +100,7 @@ export class StatusMonitoringService {
     const responseTime = (diff[0] * 1e3 + diff[1]) * 1e-6;
     const category = Math.floor(statusCode / 100);
 
-    this.spans.forEach(span => {
+    this.spans.forEach((span) => {
       const last = span.responses[span.responses.length - 1];
 
       if (
