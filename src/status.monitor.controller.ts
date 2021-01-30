@@ -5,6 +5,7 @@ import { HealthCheckService } from './health.check.service';
 import { PATH_METADATA } from '@nestjs/common/constants';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
 import { StatusMonitorConfiguration } from './config/status.monitor.configuration';
+import { StatusMonitoringService } from './status.monitoring.service';
 const Handlebars = require('handlebars');
 
 @Controller()
@@ -15,6 +16,7 @@ export class StatusMonitorController {
   constructor(
     private readonly healthCheckService: HealthCheckService,
     @Inject(STATUS_MONITOR_OPTIONS_PROVIDER) config: StatusMonitorConfiguration,
+    private readonly statusMonitoringService :StatusMonitoringService
   ) {
     const bodyClasses = Object.keys(config.chartVisibility)
       .reduce((accumulator, key) => {
@@ -29,6 +31,7 @@ export class StatusMonitorController {
       title: config.title,
       port: config.port,
       socketPath: config.socketPath,
+      path: config.path,
       bodyClasses: bodyClasses,
       script: fs.readFileSync(
         path.join(__dirname, '../src/public/javascripts/app.js'),
@@ -56,5 +59,11 @@ export class StatusMonitorController {
     const healthData = await this.healthCheckService.checkAllEndpoints();
     this.data.healthCheckResults = healthData;
     return this.render(this.data);
+  }
+
+  @Get('/data')
+  @HttpCode(200)
+  async getData(){
+    return this.statusMonitoringService.getData();
   }
 }

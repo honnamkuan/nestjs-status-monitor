@@ -13,8 +13,10 @@ Chart.defaults.global.elements.line.backgroundColor = 'rgba(0,0,0,0)';
 Chart.defaults.global.elements.line.borderColor = 'rgba(0,0,0,0.9)';
 Chart.defaults.global.elements.line.borderWidth = 2;
 
-var socket = io(
-  location.protocol + '//' + location.hostname + ':' + (port || location.port) + '/status-monitor');
+var serverUrl = location.protocol + '//' + location.hostname + ':' + (port || location.port);
+var socket = io(serverUrl + '/status-monitor');
+fetchAndRefresh();
+
 var defaultSpan = 0;
 var spans = [];
 var statusCodesColors = ['#75D701', '#47b8e0', '#ffc952', '#E53A40'];
@@ -141,10 +143,17 @@ var onSpanChange = function (e) {
     if (otherSpans[i] !== e.target) otherSpans[i].classList.remove('active');
   }
 
-  socket.emit('esm_change');
+  fetchAndRefresh();
 };
 
-socket.on('esm_start', function (data) {
+function fetchAndRefresh(){
+  fetch(serverUrl + path + '/data')
+  .then(response => response.json())
+  .then(refreshData)
+  .catch(console.error);
+}
+
+function refreshData(data) {
   // Remove last element of Array because it contains malformed responses data.
   // To keep consistency we also remove os data.
   data[defaultSpan].responses.pop();
@@ -250,7 +259,7 @@ socket.on('esm_start', function (data) {
     });
     document.getElementsByTagName('span')[0].classList.add('active');
   }
-});
+}
 
 socket.on('esm_stats', function (data) {
   console.log(data);

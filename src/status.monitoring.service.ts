@@ -35,6 +35,9 @@ export class StatusMonitoringService {
 
       this.spans.push(span);
 
+      this.collectOsMetrics(span);
+      this.sendOsMetrics(span);
+      
       const interval = setInterval(() => {
         this.collectOsMetrics(span);
         this.sendOsMetrics(span);
