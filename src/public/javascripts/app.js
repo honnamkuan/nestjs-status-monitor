@@ -147,7 +147,7 @@ var onSpanChange = function (e) {
 };
 
 function fetchAndRefresh(){
-  fetch(serverUrl + path + '/data')
+  fetch(serverUrl + location.pathname + '/data')
   .then(response => response.json())
   .then(refreshData)
   .catch(console.error);
