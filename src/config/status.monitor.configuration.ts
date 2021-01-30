@@ -7,7 +7,7 @@ export interface StatusMonitorConfiguration {
   port: number;
   socketPath: string;
   title: string;
-  ignoreStartsWith: string;
+  ignoreStartsWith: string | string[];
   healthChecks: HealthCheckConfiguration[];
   spans: SpansConfiguration[];
   chartVisibility: ChartVisibilityConfiguration;

@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  NestMiddleware,
-  Inject,
-} from '@nestjs/common';
+import { Injectable, NestMiddleware, Inject } from '@nestjs/common';
 import * as onHeaders from 'on-headers';
 import { StatusMonitoringService } from './status.monitoring.service';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
@@ -16,21 +12,27 @@ export class StatusMonitorMiddleware implements NestMiddleware {
     private readonly config: StatusMonitorConfiguration,
   ) {}
 
-    use(req, res, next: Function) {
-        if (
-            this.config.ignoreStartsWith &&
-            !req.originalUrl.startsWith(this.config.ignoreStartsWith) &&
-            !req.originalUrl.startsWith(this.config.path)
-        ) {
-            const startTime = process.hrtime();
-            onHeaders(res, () => {
-                this.statusMonitoringService.collectResponseTime(
-                    res.statusCode,
-                    startTime,
-                );
-            });
-        }
-
-        next();
+  use(req, res, next: Function) {
+    let ignoredStartWithList: string[] = [];
+    if (this.config.ignoreStartsWith) {
+      const isArray = Array.isArray(this.config.ignoreStartsWith);
+      ignoredStartWithList = isArray
+        ? this.config.ignoreStartsWith as any
+        : [this.config.ignoreStartsWith];
     }
+    if (
+      !req.originalUrl.startsWith(this.config.path) &&
+      ignoredStartWithList.every(i => !req.originalUrl.startsWith(i))
+    ) {
+      const startTime = process.hrtime();
+      onHeaders(res, () => {
+        this.statusMonitoringService.collectResponseTime(
+          res.statusCode,
+          startTime,
+        );
+      });
+    }
+
+    next();
+  }
 }

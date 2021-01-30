@@ -28,7 +28,7 @@ const configuration = {
     statusCodes: true,
   },
   healthChecks: [],
-  ignoreStartsWith: '/admin',
+  ignoreStartsWith: ['/admin'],
 };
 
 export default configuration;

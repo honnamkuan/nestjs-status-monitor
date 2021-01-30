@@ -64,7 +64,7 @@ Default config:
     rps: true,
     statusCodes: true,
   },
-  ignoreStartsWith: '/admin', // path to ignore for responseTime stats
+  ignoreStartsWith: ['/admin'], // paths to ignore for responseTime stats
   healthChecks: [],
 }
 ```
