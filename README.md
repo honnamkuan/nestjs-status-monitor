@@ -8,7 +8,7 @@
 
 Simple, self-hosted module based on Socket.io and Chart.js to report realtime server metrics for NestJS v7+ based servers.
 
-![Status monitor page](https://i.imgur.com/s63Vvad.gif 'Status monitor page')
+![Status monitor page](https://i.imgur.com/1xlO8lM.gif 'Status monitor page')
 
 ## Installation & setup NestJS v7
 
@@ -99,7 +99,3 @@ healthChecks: [
 2. Run `npm i`
 3. Run server `npm start`
 4. Go to `http://localhost:3001`
-
-
-Forked from
-[nest-status-monitor](https://github.com/GenFirst/nest-status-monitor)
