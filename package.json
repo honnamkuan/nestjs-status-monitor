@@ -48,7 +48,7 @@
     "start:dev": "tsc --watch --declaration",
     "build": "rm -rf ./dist && tsc --declaration",
     "format": "prettier src/**/*.ts --ignore-path ./.prettierignore --write && git status",
-    "prepublish": "npm run format && npm run build"
+    "prepare": "npm run format && npm run build"
   },
   "jest": {
     "moduleFileExtensions": [

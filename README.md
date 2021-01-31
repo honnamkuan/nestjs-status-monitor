@@ -93,9 +93,13 @@ healthChecks: [
 ];
 ```
 
-## Run examples
+## Local demo
 
-1. Go to `cd examples/test-status-monitor`
-2. Run `npm i`
-3. Run server `npm start`
-4. Go to `http://localhost:3001`
+1. Run the following: 
+```sh
+npm i
+cd examples/test-status-monitor
+npm i
+npm start
+```
+2. Go to `http://localhost:3001/status`
