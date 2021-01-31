@@ -19,7 +19,7 @@ Simple, self-hosted module based on Socket.io and Chart.js to report realtime se
   imports: [StatusMonitorModule.setUp()] //default config
 })
 ```
-3. Run server and go to `/status`
+3. Start server and visit `/status`
 
 ## Options
 
@@ -102,4 +102,4 @@ cd examples/test-status-monitor
 npm i
 npm start
 ```
-2. Go to `http://localhost:3001/status`
+2. Visit http://localhost:3001/status
