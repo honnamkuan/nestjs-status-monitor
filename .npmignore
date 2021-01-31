@@ -1,3 +1,13 @@
 .idea
+.prettierignore
+.prettierrc
+.travis.yml
+.gitignore
+
+tsconfig.json
+*.ts
+!*.d.ts
+
 examples
 node_modules
+test

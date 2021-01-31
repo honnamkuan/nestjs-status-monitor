@@ -14,12 +14,14 @@ Simple, self-hosted module based on Socket.io and Chart.js to report realtime se
 
 1. Run `npm install nestjs-status-monitor --save`
 2. Setup module import:
+
 ```javascript
 @Module({
   imports: [StatusMonitorModule.setUp()] //default config
 })
 ```
-3. Start server and visit `/status`
+
+3. Run server and visit `/status`
 
 ## Options
 
@@ -95,11 +97,13 @@ healthChecks: [
 
 ## Local demo
 
-1. Run the following: 
+1. Run the following:
+
 ```sh
 npm i
 cd examples/test-status-monitor
 npm i
 npm start
 ```
-2. Visit http://localhost:3001/status
+
+2. Visit [http://localhost:3001/status](http://localhost:3001/status)
