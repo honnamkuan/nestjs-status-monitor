@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import {
   StatusMonitorModule,
   StatusMonitorConfiguration,
@@ -57,7 +55,7 @@ const statusMonitorConfig: StatusMonitorConfiguration = {
 
 @Module({
   imports: [StatusMonitorModule.setUp(statusMonitorConfig)],
-  controllers: [AppController, HealthController],
-  providers: [AppService],
+  controllers: [HealthController],
+  providers: [],
 })
 export class AppModule {}

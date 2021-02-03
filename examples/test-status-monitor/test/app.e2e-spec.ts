@@ -15,10 +15,18 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/admin/health/alive returns 200', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/admin/health/alive')
       .expect(200)
-      .expect('Hello World!');
+      .expect('OK');
   });
+
+  it('/admin/health/dead returns 500', () => {
+    return request(app.getHttpServer())
+      .get('/admin/health/dead')
+      .expect(500)
+      .expect('DEAD');
+  });
+
 });
