@@ -4,8 +4,9 @@
 
 [![nestjs-status-monitor on npm](https://img.shields.io/npm/v/nestjs-status-monitor.svg)](https://www.npmjs.com/package/nestjs-status-monitor)
 ![David](https://img.shields.io/david/honnamkuan/nestjs-status-monitor)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/35443212eca84c2c94dd6dcfe4170ab3)](https://www.codacy.com/gh/honnamkuan/nestjs-status-monitor/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=honnamkuan/nestjs-status-monitor&amp;utm_campaign=Badge_Grade)
 [![npm](https://img.shields.io/npm/dt/nestjs-status-monitor.svg)](https://img.shields.io/npm/dt/nestjs-status-monitor.svg)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![GitHub](https://img.shields.io/github/license/honnamkuan/nestjs-status-monitor)
 
 Simple, self-hosted module based on Socket.io and Chart.js to report realtime server metrics for NestJS v7+ based servers.
 

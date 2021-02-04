@@ -9,7 +9,7 @@
     "url": "git+https://github.com/honnamkuan/nestjs-status-monitor.git"
   },
   "author": "honnamkuan",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "keywords": [
     "nestjs",
     "status",
