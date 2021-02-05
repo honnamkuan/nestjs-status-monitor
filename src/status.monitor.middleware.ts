@@ -1,13 +1,13 @@
 import { Injectable, NestMiddleware, Inject } from '@nestjs/common';
 import * as onHeaders from 'on-headers';
-import { StatusMonitoringService } from './status.monitoring.service';
+import { StatusMonitorService } from './status.monitor.service';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
 import { StatusMonitorConfiguration } from './config/status.monitor.configuration';
 
 @Injectable()
 export class StatusMonitorMiddleware implements NestMiddleware {
   constructor(
-    private readonly statusMonitoringService: StatusMonitoringService,
+    private readonly statusMonitorService: StatusMonitorService,
     @Inject(STATUS_MONITOR_OPTIONS_PROVIDER)
     private readonly config: StatusMonitorConfiguration,
   ) {}
@@ -26,7 +26,7 @@ export class StatusMonitorMiddleware implements NestMiddleware {
     ) {
       const startTime = process.hrtime();
       onHeaders(res, () => {
-        this.statusMonitoringService.collectResponseTime(
+        this.statusMonitorService.collectResponseTime(
           res.statusCode,
           startTime,
         );

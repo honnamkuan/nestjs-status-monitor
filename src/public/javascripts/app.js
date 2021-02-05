@@ -182,8 +182,8 @@ function refreshData(data) {
   memChart.data.labels = data[defaultSpan].os.map(addTimestamp);
 
   loadStat.textContent = '0.00';
-  if (lastOsMetric && lastOsMetric.load[defaultSpan]) {
-    loadStat.textContent = lastOsMetric.load[defaultSpan].toFixed(2);
+  if (lastOsMetric && lastOsMetric.load[0]) {
+    loadStat.textContent = lastOsMetric.load[0].toFixed(2);
   }
 
   loadChart.data.datasets[0].data = data[defaultSpan].os.map(function (point) {

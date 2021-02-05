@@ -19,7 +19,7 @@ Simple, self-hosted module based on Socket.io and Chart.js to report realtime se
 
 ```javascript
 @Module({
-  imports: [StatusMonitorModule.setUp()] //default config
+  imports: [StatusMonitorModule.forRoot()] //default config
 })
 ```
 
@@ -32,7 +32,7 @@ module.
 
 ```javascript
 @Module({
-  imports: [StatusMonitorModule.setUp(config)]
+  imports: [StatusMonitorModule.forRoot(config)]
 })
 ```
 

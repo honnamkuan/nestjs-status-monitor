@@ -6,21 +6,13 @@ import {
 } from '@nestjs/common';
 import { StatusMonitorController } from './status.monitor.controller';
 import { StatusMonitorGateway } from './status.monitor.gateway';
-import { StatusMonitoringService } from './status.monitoring.service';
+import { StatusMonitorService } from './status.monitor.service';
 import { StatusMonitorMiddleware } from './status.monitor.middleware';
 import { HealthCheckService } from './health.check.service';
 import { StatusMonitorConfiguration } from './config/status.monitor.configuration';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
 import * as defaultConfig from './default.config';
 
-@Module({
-  controllers: [StatusMonitorController.forRoot('monitor')],
-  providers: [
-    StatusMonitorGateway,
-    StatusMonitoringService,
-    HealthCheckService,
-  ],
-})
 export class StatusMonitorModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
@@ -28,7 +20,9 @@ export class StatusMonitorModule {
       .forRoutes({ path: '*', method: RequestMethod.ALL });
   }
 
-  static setUp(config: StatusMonitorConfiguration = defaultConfig.default): DynamicModule {
+  static forRoot(
+    config: StatusMonitorConfiguration = defaultConfig.default,
+  ): DynamicModule {
     return {
       module: StatusMonitorModule,
       providers: [
@@ -37,7 +31,7 @@ export class StatusMonitorModule {
           useValue: config,
         },
         StatusMonitorGateway,
-        StatusMonitoringService,
+        StatusMonitorService,
         HealthCheckService,
       ],
       controllers: [StatusMonitorController.forRoot(config.path)],

@@ -7,7 +7,7 @@ import { StatusMonitorConfiguration } from './config/status.monitor.configuratio
 import * as v8 from 'v8';
 
 @Injectable()
-export class StatusMonitoringService {
+export class StatusMonitorService {
   spans = [];
   eventLoopStats;
 
@@ -20,7 +20,7 @@ export class StatusMonitoringService {
     import('event-loop-stats')
       .then((module) => (this.eventLoopStats = module))
       .catch((err) =>
-        console.warn(
+        Logger.warn(
           'event-loop-stats not found, ignoring event loop metrics...',
         ),
       );
@@ -37,7 +37,7 @@ export class StatusMonitoringService {
 
       this.collectOsMetrics(span);
       this.sendOsMetrics(span);
-      
+
       const interval = setInterval(() => {
         this.collectOsMetrics(span);
         this.sendOsMetrics(span);
@@ -69,9 +69,10 @@ export class StatusMonitoringService {
       stat.memory = stat.memory / 1024 / 1024;
       stat.load = os.loadavg();
       stat.timestamp = Date.now();
-      stat.heap = v8.getHeapStatistics();
+      const { used_heap_size } = v8.getHeapStatistics();
+      stat.heap = { used_heap_size };
 
-      if (this.eventLoopStats) {
+      if (this.eventLoopStats && this.eventLoopStats.sense) {
         stat.loop = this.eventLoopStats.sense();
       }
 
