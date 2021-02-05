@@ -52,11 +52,21 @@ describe('Status Monitor Module', () => {
   });
 
   describe(`GET /status/data`, () => {
-    it('should returns 200', () =>
+    it('should returns 200 with stats', () =>
       request(app.getHttpServer())
         .get('/status/data')
         .expect(200)
-        .expect(statusMonitorService.getData()));
+        .expect(statusMonitorService.getData())
+        .expect('Content-type', /json/));
+  });
+
+  describe(`GET /status`, () => {
+    it(`should returns html`, () => {
+      request(app.getHttpServer())
+        .get('/status')
+        .expect(200)
+        .expect('Content-type', /html/);
+    });
   });
 
   afterAll(async () => {

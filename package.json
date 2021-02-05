@@ -24,6 +24,7 @@
     "@nestjs/testing": "^7.6.7",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
+    "@types/supertest": "^2.0.10",
     "coveralls": "^3.1.0",
     "jest": "^26.6.3",
     "nestjs-config": "^1.4.7",
