@@ -7,7 +7,8 @@ const logger = new Logger('bootstrap');
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  await app.listen(3001);
-  logger.log(`Access status monitor at http://localhost:3001/status`);
+  const PORT = process.env.PORT || 3001;
+  await app.listen(PORT);
+  logger.log(`Access status monitor at http://localhost:${PORT}/status`);
 }
 bootstrap();
