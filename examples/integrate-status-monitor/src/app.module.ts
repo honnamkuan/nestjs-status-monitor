@@ -41,10 +41,6 @@ const statusMonitorConfig: StatusMonitorConfiguration = {
       interval: 15, // Every 15 seconds
       retention: 60,
     },
-    {
-      interval: 60, // Every 60 seconds
-      retention: 600,
-    },
   ],
   chartVisibility: {
     cpu: true,
