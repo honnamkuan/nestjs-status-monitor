@@ -51,7 +51,7 @@
     "build": "rm -rf ./dist && tsc --declaration",
     "format": "prettier src/**/*.ts --ignore-path ./.prettierignore",
     "prepare": "npm run format && npm run build",
-    "heroku-postbuild": "npm build && cd ./examples/integrate-status-monitor && npm ci && npm build"
+    "heroku-postbuild": "npm run build && cd ./examples/integrate-status-monitor && npm ci && npm run build"
   },
   "jest": {
     "moduleFileExtensions": [
