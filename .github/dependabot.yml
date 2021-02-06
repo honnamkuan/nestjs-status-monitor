@@ -4,13 +4,13 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     labels:
       - version-update
 
   - package-ecosystem: "npm"
-    directory: "/examples/test-status-monitor"
+    directory: "/examples/integrate-status-monitor"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     labels:
       - version-update

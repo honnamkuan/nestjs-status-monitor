@@ -3,11 +3,16 @@
 .prettierrc
 .travis.yml
 .gitignore
+.github
+.codacy.yml
+
 
 tsconfig.json
 *.ts
 !*.d.ts
+nestjs-status-monitor-*.tgz
 
 examples
 node_modules
 test
+coverage
