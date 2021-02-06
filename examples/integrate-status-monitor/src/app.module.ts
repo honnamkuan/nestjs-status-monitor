@@ -5,9 +5,11 @@ import {
 } from '../../../dist/index';
 import { HealthController } from './healthController';
 
+const PORT = +process.env.PORT || 3001;
+
 const statusMonitorConfig: StatusMonitorConfiguration = {
   title: 'NestJS Monitoring Page',
-  port: 3001,
+  port: PORT,
   socketPath: '/socket.io',
   path: '/status',
   ignoreStartsWith: '/admin',
@@ -16,13 +18,13 @@ const statusMonitorConfig: StatusMonitorConfiguration = {
       protocol: 'http',
       host: 'localhost',
       path: '/admin/health/alive',
-      port: 3001,
+      port: PORT,
     },
     {
       protocol: 'http',
       host: 'localhost',
       path: '/admin/health/dead',
-      port: 3001,
+      port: PORT,
     },
   ],
   spans: [

@@ -13,6 +13,10 @@ Simple, self-hosted module based on Socket.io and Chart.js to report realtime se
 
 ![Status monitor page](https://i.imgur.com/1xlO8lM.gif 'Status monitor page')
 
+## Live Demo
+
+[Demo available here](http://nestjs-status-monitor.herokuapp.com/status)
+
 ## Installation & setup NestJS v7
 
 1. Run `npm install nestjs-status-monitor --save`
