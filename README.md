@@ -15,7 +15,7 @@ Simple, self-hosted module based on Socket.io and Chart.js to report realtime se
 
 ## Live Demo
 
-[Demo available here](http://nestjs-status-monitor.herokuapp.com/status)
+[Demo available here](https://nestjs-status-monitor.herokuapp.com/status)
 
 ## Installation & setup NestJS v7
 
