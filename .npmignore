@@ -5,6 +5,7 @@
 .gitignore
 .github
 .codacy.yml
+Procfile
 
 
 tsconfig.json
