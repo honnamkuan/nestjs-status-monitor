@@ -12,7 +12,7 @@
     "target": "es6",
     "sourceMap": false,
     "allowJs": false,
-    "rootDir": "./src",
+    "rootDir": ".",
     "baseUrl": "./",
     "outDir": "./dist",
     "lib": ["es2017"]
