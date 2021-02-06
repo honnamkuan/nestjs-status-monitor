@@ -28,5 +28,4 @@ describe('AppController (e2e)', () => {
       .expect(500)
       .expect('DEAD');
   });
-
 });

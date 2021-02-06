@@ -103,7 +103,7 @@ healthChecks: [
 
 ```sh
 npm i
-cd examples/test-status-monitor
+cd examples/integrate-status-monitor
 npm i
 npm start
 ```
