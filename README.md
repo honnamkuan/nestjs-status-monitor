@@ -5,6 +5,7 @@
 [![nestjs-status-monitor on npm](https://img.shields.io/npm/v/nestjs-status-monitor.svg)](https://www.npmjs.com/package/nestjs-status-monitor)
 ![David](https://img.shields.io/david/honnamkuan/nestjs-status-monitor)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/35443212eca84c2c94dd6dcfe4170ab3)](https://www.codacy.com/gh/honnamkuan/nestjs-status-monitor/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=honnamkuan/nestjs-status-monitor&amp;utm_campaign=Badge_Grade)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/honnamkuan/nestjs-status-monitor/Node.js%20CI)
 [![npm](https://img.shields.io/npm/dt/nestjs-status-monitor.svg)](https://img.shields.io/npm/dt/nestjs-status-monitor.svg)
 ![GitHub](https://img.shields.io/github/license/honnamkuan/nestjs-status-monitor)
 
