@@ -35,12 +35,12 @@ jobs:
       working-directory: ./examples/integrate-status-monitor
     - run: npm run test:e2e
       working-directory: ./examples/integrate-status-monitor
-  
+
   automerge:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: fastify/github-action-merge-dependabot@v2.0.0
+      - uses: fastify/github-action-merge-dependabot@v3.0.0
         if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
