@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@nestjs/websockets": "^7.6.11",
-    "axios": "^0.21.1",
+    "axios": "^0.27.2",
     "handlebars": "4.7.7",
     "on-headers": "^1.0.2",
     "pidusage": "^2.0.21",
