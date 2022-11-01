@@ -29,7 +29,7 @@
     "@nestjs/common": "^7.6.18"
   },
   "devDependencies": {
-    "@nestjs/cli": "^9.1.4",
+    "@nestjs/cli": "^9.1.5",
     "@nestjs/testing": "^7.6.15",
     "@types/jest": "^26.0.20",
     "@types/node": "^18.6.3",
