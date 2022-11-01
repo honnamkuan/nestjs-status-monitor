@@ -23,7 +23,7 @@
   "dependencies": {
     "@nestjs/core": "^7.6.11",
     "@nestjs/platform-express": "^7.6.18",
-    "@nestjs/platform-socket.io": "^9.1.2",
+    "@nestjs/platform-socket.io": "^9.1.6",
     "@nestjs/websockets": "^7.6.15",
     "socket.io": "^4.5.3",
     "@nestjs/common": "^7.6.18"
